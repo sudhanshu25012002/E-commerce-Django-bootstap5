@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+
+
+{% block start %}
+    
+
+<div class="container mt-5 pt-5">
+    <div class="row">
+
+        {% for product in products %}
+        <div class="col-md-3">
+            <figure class="card card-product-grid">
+                <div class="img-wrap">
+                    <span class="topbar">
+                        <span class="badge badge-success"> NEW </span>
+                    </span>
+                    <img src="/media/{{product.product_images.first.image}}">
+                </div>
+                <figcaption class="info-wrap border-top">
+                    <a href="{% url 'get_products' product.slug %}" class="title"> <b>{{product.product_name}}</b> </a>
+                        <div class="price-wrap mt-2">
+                            <span class="price">₹{{product.price}}</span>
+                            <!-- <small class="price-old">$14.99</small> -->
+                        </div> <!-- price-wrap.// -->
+                </figcaption>
+            </figure> <!-- card // -->
+        </div> <!-- col.// -->
+        {% endfor %}
+    </div>
+
+    </div>
+
+
+{% endblock  %}
+    
